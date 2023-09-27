@@ -65,8 +65,9 @@ def detect_frame(frame):
     cv2.imshow('window', frame)
 
 video = cv2.VideoCapture('videoplayback1.mp4')
-# Run with GPU to faster
+# Using pre-train YOLO model
 neural_network = cv2.dnn.readNetFromDarknet('yolov3.cfg', 'yolov3.weights')
+# Configure the backend and processing target for the neural network (CPU)
 neural_network.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
 neural_network.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
 while True:
